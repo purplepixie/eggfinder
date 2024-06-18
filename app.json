@@ -20,7 +20,14 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "uk.davecutting.eggfinder"
+      "package": "uk.davecutting.eggfinder",
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -28,8 +35,17 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+    [
       "expo-router"
     ],
+    [
+      "react-native-ble-plx",
+      {
+        "isBackgroundEnabled": true,
+        "modes": ["peripheral","central"],
+        "bluetoothAlwaysPermission": "Allow $(PRODUCT_NAME) to connect tto bluetooth devices"
+      }
+    ]],
     "experiments": {
       "typedRoutes": true
     }
